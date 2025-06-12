@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+  <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="author"
+      content="Ana Loreto"
+    />
+    <meta name="description" content="HELLO WORLD" />
+    <title>HELLO WORLD MENU</title>
+  
+  <style>
+    /*----------------------------------------------------------------style-----------------------------------------------------------*/
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: #fefbf6;
+    }
+
+    @font-face {
+    font-family: NB Regular;
+     src: url(NonBureau-Regular.otf) format('truetype') ;
+  }
+
+  @font-face {
+    font-family: NB Medium;
+     src: url(NonBureau-Medium.otf);
+  }
+
+
+  body {
+   background-color: #43FF44; 
+    color:#020202;
+    font-size: 18px;
+    font-family: NB Regular;}
+   
+/*---------------------------------------------header-------------------------------------------------*/
+
+#indice{
+height: 100vh;
+}
+
+#header{
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    width: 100%; 
+    background-color: #43FF44; 
+    justify-content: center;
+}
+
+#titulo{
+  /*  background-color: #d5298d; */
+  margin-left: 10px;
+  display: flex;
+  flex-direction: row; 
+}
+
+#titulo a,p{
+  margin: 5px;
+  padding: 0px;
+  text-decoration: none;
+  color:#020202; 
+  width:fit-content;
+    font-family: NB Medium;
+}
+
+#menu{
+ /*  background-color: #1faabc; */
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+  justify-content: center;
+    display: flex;
+  justify-content: center;
+   align-items: center;
+  height: 90vh;
+}
+
+#menu a{
+  font-size: 40px;
+  text-decoration: none;
+  width:fit-content;
+  color:#020202; 
+  line-height: 1.6;
+  
+  
+}
+#menu a:hover {
+  color: #43FF44; 
+  background-color: #020202; 
+   
+}
+
+#titulo a:hover {
+  color: #43FF44; 
+  background-color: #020202; 
+  font-weight: lighter;
+}
+
+
+  </style>
+</head>
+<body>
+<!-- ---------------------------------------------------------HTML - HEADER----------------------------------------------------------------------->
+   <section id="indice">
+    <div id="header">
+      <div id="titulo"> <a href="../root2/index.html"> HELLO WORLD</a>    </p> </div>
+    </div>
+   
+    <div id="menu">
+      <a href="../aprende/index.html"># APRENDE</a> 
+      <a href="../faz/index.html">//// FAZ</a> 
+      <a href="../pensa/index.html">--→ PENSA </a> 
+      <a href="../organiza/index.html" >➍ ORGANIZA </a>
+      <a href="../descobre/index.html" >(•••)   DESCOBRE </a>
+   </div>
+
+ </section>
+</body>
+</html>
