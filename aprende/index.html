@@ -161,7 +161,7 @@
                    <br> Consulta aqui algumas <a href="../descobre/index.html">sugestões</a></p> </div> 
        <div class="hm"> <p>E porque não criar uma designflix? fazer uma playlist no youtube de vídeos interessantes?
           <br> <br>
-          Para mais recursos espreita <a href="https://the-design-folder.fba.up.pt" target="_blank"> the_design _folder</a></p> </div> 
+          Espreita <a href="https://the-design-folder.fba.up.pt" target="_blank"> the_design _folder</a> para mais recursos</p> </div> 
       </div>
         </div>
 
@@ -217,55 +217,91 @@ Consulta aqui algumas<a href="https://eventos.fba.up.pt/" target="_blank"> suges
 
 
 </main>
-  <script>
-    const r = document.getElementById("r");
-    const e = document.getElementById("e");
 
-    let scrollValue = 0;
-    let unlocked = false;
+<script>
+  const r = document.getElementById("r");
+  const e = document.getElementById("e");
 
-    function lerp(a, b, t) {
-      return a + (b - a) * t;
-    }
+  let scrollValue = 0;
+  let unlocked = false;
+  let touchStartY = 0;
+  let touchEndY = 0;
 
-    function updatePositions() {
-      const t = Math.min(scrollValue / 100, 1);
-      r.style.bottom = lerp(-250, 0, t) + "px";
-      e.style.top = lerp(-250, 0, t) + "px";
-    }
+  function lerp(a, b, t) {
+    return a + (b - a) * t;
+  }
 
-    function unlockScroll() {
-      document.body.style.overflow = "auto";
-      document.documentElement.style.overflow = "auto";
-    }
+  function updatePositions() {
+    const t = Math.min(scrollValue / 100, 1);
+    r.style.bottom = lerp(-250, 0, t) + "px";
+    e.style.top = lerp(-250, 0, t) + "px";
+  }
 
-    function lockScroll() {
-      document.body.style.overflow = "hidden";
-      document.documentElement.style.overflow = "hidden";
-      window.scrollTo({ top: 0 });
-    }
+  function unlockScroll() {
+    document.body.style.overflow = "auto";
+    document.documentElement.style.overflow = "auto";
+  }
 
-    window.addEventListener("wheel", (e) => {
-      if (!unlocked) {
-        e.preventDefault();
-        scrollValue += e.deltaY * 0.3;
-        scrollValue = Math.max(0, Math.min(100, scrollValue));
-        updatePositions();
+  function lockScroll() {
+    document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
+    window.scrollTo({ top: 0 });
+  }
 
-        if (scrollValue >= 100 && !unlocked) {
-          unlocked = true;
-          unlockScroll();
-        }
+  // Scroll com rato (desktop)
+  window.addEventListener("wheel", (e) => {
+    if (!unlocked) {
+      e.preventDefault();
+      scrollValue += e.deltaY * 0.3;
+      scrollValue = Math.max(0, Math.min(100, scrollValue));
+      updatePositions();
 
-        if (scrollValue < 100 && unlocked) {
-          unlocked = false;
-          lockScroll();
-        }
+      if (scrollValue >= 100 && !unlocked) {
+        unlocked = true;
+        unlockScroll();
       }
-    }, { passive: false });
 
-    updatePositions();
-    lockScroll();
+      if (scrollValue < 100 && unlocked) {
+        unlocked = false;
+        lockScroll();
+      }
+    }
+  }, { passive: false });
+
+  // Scroll com dedo (mobile)
+  window.addEventListener("touchstart", (e) => {
+    touchStartY = e.touches[0].clientY;
+  });
+
+  window.addEventListener("touchmove", (e) => {
+    if (!unlocked) {
+      e.preventDefault();
+      touchEndY = e.touches[0].clientY;
+      let deltaY = touchStartY - touchEndY;
+      scrollValue += deltaY * 0.5; // sensibilidade aumentada
+      scrollValue = Math.max(0, Math.min(100, scrollValue));
+      updatePositions();
+
+      if (scrollValue >= 100 && !unlocked) {
+        unlocked = true;
+        unlockScroll();
+      }
+
+      if (scrollValue < 100 && unlocked) {
+        unlocked = false;
+        lockScroll();
+      }
+
+      touchStartY = touchEndY; // atualizar para o próximo movimento
+    }
+  }, { passive: false });
+
+  updatePositions();
+  lockScroll();
+
+
+
+
   </script>
 
  
@@ -308,3 +344,4 @@ Consulta aqui algumas<a href="https://eventos.fba.up.pt/" target="_blank"> suges
   </script>
 </body>
 </html>
+
