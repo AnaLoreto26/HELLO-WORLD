@@ -329,7 +329,7 @@ P{
 /* -----MOBILE------- */
 @media (max-width: 600px) {
 h1{
-  font-size: 50px;
+  font-size: 3rem;
 }
 
 .cima{
