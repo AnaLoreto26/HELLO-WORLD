@@ -1,4 +1,4 @@
-    /*reset*/
+ /*reset*/
     html, body, div, span, applet, object, iframe,
     h1, h2, h3, h4, h5, h6, p, blockquote, pre,
      abbr, acronym, address, big, cite, code,
@@ -381,7 +381,8 @@ p{
   flex-direction:column;
   }
   .subtitle, .text{
-    width: 50%;
+    width: 47%;
+    padding-right: 10px;
   }
 
   .subtitle{
@@ -421,7 +422,7 @@ p{
     }
     
     .text {
-      max-width: 600px;
+      max-width: 430px;
       white-space: pre-line; 
     }
 
@@ -440,7 +441,7 @@ p{
     padding: 150px 50px;
      background-color: #fb4cd2; 
     align-items: center;
-        padding: 150px 70px;
+        padding: 150px 4.2rem;
 }  
 
  h2{
@@ -454,7 +455,7 @@ font-size: 30px;
   background: #f1f1f1;
   color: black;
   box-shadow: 0 0 8px rgba(0,0,0,0.1);
-   height:560px;
+   height:37rem;
     transform: rotate(-2deg);
 }
 .botoes {
@@ -657,6 +658,9 @@ font-size: 30px;
 .s2 { bottom: 100px; left: 45%; transform: rotate(-3deg); }
 .s3 { top: 30px; right: 15%; transform: rotate(15deg); }
 
+.stickeer a {
+  margin: 0%;
+}
 
 /* TABLET */
 @media (max-width: 780px) {
@@ -679,10 +683,10 @@ font-size: 30px;
 
   }
   
-.s1 { top: 140px; left: 18%; transform: rotate(-5deg); height: 110px; }
-.s2 { top:620px; left: 13%; transform: rotate(5deg); height: 90px; width: 280px; }
-.s3 { top: 325px; right: 15%; transform: rotate(-8deg); height: 60px;  }
-  
+.s1 { top: 8rem; left: 18%; transform: rotate(-5deg); height: 110px; }
+.s3 { top: 18.3rem; right: 13%; transform: rotate(-8deg); height: 60px;  }
+.s2 { bottom: 6rem; left: 12%; transform: rotate(5deg); height: 90px; width: 280px; }  
+
 .titl h1{
 font-size: 50px;
 margin: 60px;
