@@ -148,6 +148,9 @@ font-family: NB Medium;
   padding-left: 30px;
 }
 
+.título2{
+  flex-wrap: nowrap;
+}
 .link{
   font-size: 27px;
   font-family: NB REgular;
@@ -361,6 +364,7 @@ h1{
 
 P{
   padding: 0px 10px;
+  font-size: 16px;
 }
 
 .baixo{
@@ -571,7 +575,7 @@ height: 430px;
   background: white;
   color: black;
   box-shadow: 0 0 8px rgba(0,0,0,0.1);
-  height:640px;
+  height: 43.5rem;
  
     transform: rotate(-2deg);
         
@@ -661,7 +665,7 @@ padding-top: 10px;
 }
 
 .s1{height: 150px;  max-width: 230px; padding-top: 35px;}
-.s2{ max-width: 320px;}
+.s2{ max-width: 350px;}
 .s3{  border-radius: 50% / 50%;
      width:220px;
      padding: 35px;
@@ -686,9 +690,17 @@ padding-top: 10px;
 /* MOBILE */
 @media (max-width: 600px) {
   .titlee h1 { font-size: 50px }
+  .sticker{
+    font-size: 16px;
+  }
 
-  .s1 { top: 100px; left: 17%; transform: rotate(5deg); }
-  .s2 { top: 520px; left:65px; transform: rotate(-10deg); height: 80px; width: 240px; }
-  .s3 { top: 650px; left: 14%; transform: rotate(2deg); }
+  .s1 { top: 6.25rem; left: 17%; transform: rotate(5deg); height: 120px; }
+  .s2 { top: 28.5rem; left: 14%; transform: rotate(-10deg); height: 80px; width: 240px; }
+  .s3 { top: 36rem; left: 12%; transform: rotate(2deg); }
 }
 
+
+
+
+   
+  
