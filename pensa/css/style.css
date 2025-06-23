@@ -161,10 +161,8 @@ font-family: NB Medium;
   /*---------------------------------------------INTRO-------------------------------------------------*/
 
 #intro {
-  background-color: #020202; 
   height: 100vh;
       margin: 0;
-   
       color: white;
       display: flex;
       justify-content: center;
@@ -172,8 +170,6 @@ font-family: NB Medium;
       overflow: hidden;
 
 }
-
-
 
     .container {
       position: relative;
@@ -575,7 +571,7 @@ height: 430px;
   background: white;
   color: black;
   box-shadow: 0 0 8px rgba(0,0,0,0.1);
-  height: 43.5rem;
+  height: 44rem;
  
     transform: rotate(-2deg);
         
@@ -694,8 +690,8 @@ padding-top: 10px;
     font-size: 16px;
   }
 
-  .s1 { top: 6.25rem; left: 17%; transform: rotate(5deg); height: 120px; }
-  .s2 { top: 28.5rem; left: 14%; transform: rotate(-10deg); height: 80px; width: 240px; }
+  .s1 { top: 6.25rem; left: 17%; transform: rotate(5deg); height: 100px; }
+  .s2 { top: 29rem; left: 14%; transform: rotate(-10deg); height: 75px; width: 240px; }
   .s3 { top: 36rem; left: 12%; transform: rotate(2deg); }
 }
 
