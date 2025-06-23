@@ -216,9 +216,13 @@ font-family: NB Medium;
   height: 100%;
   object-fit: cover;
   display: block;
+} 
+     
+.center-text {
+ font-size: 50px;
 }
 
-    }
+}
 
   /*---------------------------------------------TEXTO-------------------------------------------------*/
 
