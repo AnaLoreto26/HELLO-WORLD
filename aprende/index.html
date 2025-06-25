@@ -233,6 +233,7 @@ Consulta aqui algumas<a href="../descobre/index.html#como"> sugestões de evento
 
 </main>
 
+ 
 <script>
   const r = document.getElementById("r");
   const e = document.getElementById("e");
@@ -253,13 +254,11 @@ Consulta aqui algumas<a href="../descobre/index.html#como"> sugestões de evento
   }
 
   function unlockScroll() {
-    document.body.style.overflow = "auto";
-    document.documentElement.style.overflow = "auto";
+    document.body.classList.remove("lock-scroll");
   }
 
   function lockScroll() {
-    document.body.style.overflow = "hidden";
-    document.documentElement.style.overflow = "hidden";
+    document.body.classList.add("lock-scroll");
     window.scrollTo({ top: 0 });
   }
 
@@ -267,7 +266,7 @@ Consulta aqui algumas<a href="../descobre/index.html#como"> sugestões de evento
   window.addEventListener("wheel", (e) => {
     if (!unlocked) {
       e.preventDefault();
-      scrollValue += e.deltaY * 0.3;
+      scrollValue += e.deltaY * 0.3; // ← ajusta aqui a velocidade
       scrollValue = Math.max(0, Math.min(100, scrollValue));
       updatePositions();
 
@@ -292,8 +291,8 @@ Consulta aqui algumas<a href="../descobre/index.html#como"> sugestões de evento
     if (!unlocked) {
       e.preventDefault();
       touchEndY = e.touches[0].clientY;
-      let deltaY = touchStartY - touchEndY;
-      scrollValue += deltaY * 0.5; // sensibilidade aumentada
+      const deltaY = touchStartY - touchEndY;
+      scrollValue += deltaY * 0.5; // ← ajusta aqui a sensibilidade no mobile
       scrollValue = Math.max(0, Math.min(100, scrollValue));
       updatePositions();
 
@@ -307,17 +306,15 @@ Consulta aqui algumas<a href="../descobre/index.html#como"> sugestões de evento
         lockScroll();
       }
 
-      touchStartY = touchEndY; // atualizar para o próximo movimento
+      touchStartY = touchEndY;
     }
   }, { passive: false });
 
+  // Inicializa posições
   updatePositions();
   lockScroll();
+</script>
 
-
-
-
-  </script>
 
  
   <script>
