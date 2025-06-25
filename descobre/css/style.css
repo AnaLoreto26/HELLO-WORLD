@@ -165,7 +165,7 @@ font-family: NB Medium;
       display: flex;
       justify-content: center;
       align-items: center;
-       background-image: url('../fundo2.png'); /* <- substitui com caminho real */
+       background-image: url('../fundo 2.png'); /* <- substitui com caminho real */
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
