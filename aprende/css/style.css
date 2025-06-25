@@ -59,10 +59,18 @@
     font-family: NB Regular;
     src: url(../fonts/NonBureau-Regular.otf);
     width: 100%;
-     font-size: 18px;
-     
+     font-size: 18px;  
   }
-  
+
+    body.lock-scroll {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  overflow-y: scroll; /* Barra visível */
+}
+
   #page{
     position: relative;
     display: block;
