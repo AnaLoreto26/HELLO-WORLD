@@ -454,11 +454,18 @@ margin-bottom:  200px;
  .hm a{
  line-height: 1.3;
   }
-.texto1 {
-margin-bottom:  35.6rem;
-margin-left: 50px;
+
+.texto1 .hm {
+display: block;
+min-width: 200px;
+margin-bottom: 20px;
 }
 
+.texto1 {
+flex-direction: row;
+margin-bottom:  35.6rem;
+margin-left: 50px;
+  }
 .texto2 {
 margin-bottom:  45rem;
 }
