@@ -215,14 +215,13 @@
 <script>
 const isMobile = window.innerWidth < 768;
 
-// Posições adaptadas conforme o design desejado
 const mobileDots = [
- { from: { x: 20, y: 35 }, to: { x: 25, y: 35} },
+  { from: { x: 20, y: 35 }, to: { x: 25, y: 35} },
   { from: { x: 45, y: 20 }, to: { x: 45, y: 35} },
   { from: { x: 55, y: 25 }, to: { x: 65, y: 35 } },
   { from: { x: 30, y: 70 }, to: { x: 25, y: 62 } },
   { from: { x: 70, y: 65 }, to: { x: 45, y: 62 } },
-  { from: { x: 60, y: 80 } , to: { x: 65, y: 62 } },
+  { from: { x: 60, y: 80 }, to: { x: 65, y: 62 } },
 ];
 
 const desktopDots = [
@@ -251,15 +250,11 @@ const dots = elements.map((el, i) => ({
   to: dotData[i].to
 }));
 
-let scrollValue = 0;
-let aligned = false;
-
 function lerp(a, b, t) {
   return a + (b - a) * t;
 }
 
-function updateDots() {
-  const t = Math.min(scrollValue / 100, 1);
+function updateDots(t = 0) {
   dots.forEach(dot => {
     const x = lerp(dot.from.x, dot.to.x, t);
     const y = lerp(dot.from.y, dot.to.y, t);
@@ -268,21 +263,54 @@ function updateDots() {
   });
 }
 
-window.addEventListener('wheel', (e) => {
-  if (!aligned) {
-    e.preventDefault();
-    scrollValue += e.deltaY * 0.1;
-    scrollValue = Math.max(0, Math.min(100, scrollValue));
-    updateDots();
+// Estado inicial
+let scrollProgress = 0;
+let unlocked = false;
 
-    if (scrollValue >= 100) {
-      aligned = true;
-      document.body.style.overflow = 'auto';
-    }
+// Aplica classe que trava o scroll mas mantém barra visível
+document.body.classList.add('lock-scroll');
+
+function tryUnlock() {
+  if (scrollProgress >= 1 && !unlocked) {
+    unlocked = true;
+    document.body.classList.remove('lock-scroll');
+  }
+}
+
+// Wheel (desktop)
+window.addEventListener('wheel', (e) => {
+  if (unlocked) return;
+
+  e.preventDefault();
+  scrollProgress += e.deltaY * 0.002;
+  scrollProgress = Math.max(0, Math.min(1, scrollProgress));
+  updateDots(scrollProgress);
+  tryUnlock();
+}, { passive: false });
+
+// Touch (mobile)
+let touchStartY = null;
+
+window.addEventListener('touchstart', e => {
+  if (!unlocked) {
+    touchStartY = e.touches[0].clientY;
+  }
+});
+
+window.addEventListener('touchmove', e => {
+  if (!unlocked && touchStartY !== null) {
+    const deltaY = touchStartY - e.touches[0].clientY;
+    scrollProgress += deltaY * 0.01;
+    scrollProgress = Math.max(0, Math.min(1, scrollProgress));
+    updateDots(scrollProgress);
+    tryUnlock();
+    touchStartY = e.touches[0].clientY;
+    e.preventDefault();
   }
 }, { passive: false });
 
-updateDots();
+// Inicializa posições
+updateDots(0);
 </script>
 
 
