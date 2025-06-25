@@ -168,7 +168,7 @@ font-family: NB Medium;
       justify-content: center;
       align-items: center;
       overflow: hidden;
-
+      background: black;
 }
 
     .container {
