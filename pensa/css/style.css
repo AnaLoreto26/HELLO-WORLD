@@ -233,7 +233,7 @@ font-family: NB Medium;
   position: relative;
   height: 100vh;
   width: 100%;
-  background-color: rgb(115, 67, 67); /* ou qualquer cor que contraste */
+ 
   z-index: 1;
   overflow: hidden;
 }
